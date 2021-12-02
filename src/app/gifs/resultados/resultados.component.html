@@ -1,0 +1,27 @@
+<!-- <ul>       
+    <li *ngFor="let gif of resultados">
+        {{ gif.title }}
+    </li>
+</ul> -->  
+<div class="row">
+    <div *ngFor="let gif of resultados"
+         class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
+        <div class="card">
+            <img [src]="gif.images.downsized_medium.url" 
+                 [alt]="gif.title"
+                 class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">
+                    {{ gif.title }}
+                </p>
+                <!-- <input type="text" #text class="form-control w-25" placeholder="Text message" [value]="gif.images.downsized_medium.url">
+                <button class="btn btn-primary" [ngxClipboard]="text">Copy url</button> -->
+                <div #container>
+                    <button class="btn btn-primary" ngxClipboard [cbContent]="gif.images.downsized_medium.url" [container]="container">Copy Url</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
